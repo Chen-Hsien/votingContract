@@ -31,3 +31,36 @@ REPORT_GAS=true npx hardhat test
 npx hardhat node
 npx hardhat run scripts/deploy.js
 ```
+
+## Slither
+Slither is a Solidity static analysis framework. It runs a suite of vulnerability detectors, prints visual information about contract details.  
+Slither enables developers to find vulnerabilities, enhance their code comphrehension, and quickly prototype custom analyses.
+
+```shell
+slither . --print human-summary
+
+Total number of contracts in source files: 1
+Number of contracts in dependencies: 5
+Source lines of code (SLOC) in source files: 83
+Source lines of code (SLOC) in dependencies: 173
+Number of  assembly lines: 0
+Number of optimization issues: 0
+Number of informational issues: 20
+Number of low issues: 0
+Number of medium issues: 0
+Number of high issues: 0
+
+
+Use: Openzeppelin-Ownable, Openzeppelin-ERC20
+ERCs: ERC20
+
++--------+-------------+-------+--------------------+--------------+----------+
+|  Name  | # functions |  ERCS |     ERC20 info     | Complex code | Features |
++--------+-------------+-------+--------------------+--------------+----------+
+| voting |      45     | ERC20 |     No Minting     |      No      |          |
+|        |             |       | Approve Race Cond. |              |          |
+|        |             |       |                    |              |          |
++--------+-------------+-------+--------------------+--------------+----------+
+INFO:Slither:. analyzed (6 contracts)
+```
+
